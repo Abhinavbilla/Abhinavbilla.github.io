@@ -115,7 +115,7 @@ export const projectsData = [
     category: "Software & Systems",
     secondaryCategory: "ML Infrastructure / Backend Systems",
     tags: ["FastAPI", "Streamlit", "SQLite", "Python", "Statistical Drift Detection"],
-    githubUrl: "https://github.com/Abhinavbilla",
+    githubUrl: "https://github.com/Abhinavbilla/Drift-Monitoring-api",
     summary: "Built a drift detection platform with a FastAPI backend, Streamlit dashboard, and SQLite persistence layer to monitor and flag statistical drift in structured data pipelines.",
     keyPoints: [
       "Built a drift detection platform with a FastAPI backend, Streamlit dashboard, and SQLite persistence layer to monitor and flag statistical drift in structured data pipelines.",
@@ -146,7 +146,7 @@ export const projectsData = [
     category: "AI / ML & Modeling",
     secondaryCategory: "Deep Learning / Generative Frameworks",
     tags: ["PyTorch", "Python", "Generative Models (VAE, InfoVAE, VQ-VAE)", "CIFAR-10", "CelebA"],
-    githubUrl: "https://github.com/Abhinavbilla",
+    githubUrl: "https://github.com/Abhinavbilla/Deep-Representation-Learning-VAE-Suite",
     summary: "Implemented and evaluated continuous (Standard VAE), modified-objective (InfoVAE), and discrete (VQ-VAE) generative frameworks on CIFAR-10 and CelebA benchmark datasets.",
     keyPoints: [
       "Implemented and evaluated continuous (Standard VAE), modified-objective (InfoVAE), and discrete (VQ-VAE) generative frameworks on CIFAR-10 and CelebA benchmark datasets.",
