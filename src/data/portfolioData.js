@@ -1,27 +1,13 @@
 /**
- * Centralized Portfolio Data Store
- * Source of Truth: resume.pdf & spec.md
- * 
- * Candidate: Billa Abhinav
- * Institution: Indian Institute of Science (IISc), Bangalore
- * Discipline: B.Tech in Mathematics and Computing (2024 – Present)
+ * Portfolio content. Components read everything from here.
  */
 
 export const personalInfo = {
   name: "Billa Abhinav",
   shortName: "Abhinav",
   initials: "AB",
-  title: "Undergraduate Student (B.Tech Mathematics & Computing)",
   institution: "Indian Institute of Science (IISc), Bangalore",
-  period: "2024 – Present",
-  classOf: "2024 – Present",
-  statusPill: "Current IISc Student • Mathematics & Computing",
   resumePath: "/resume.pdf",
-  profilePhoto: "/profile-photo.jpg",
-  taglines: {
-    primary: "B.Tech in Mathematics & Computing @ Indian Institute of Science (IISc)",
-    secondary: "Current undergraduate student at IISc Bangalore bridging mathematical rigor with scalable software engineering and intelligent machine learning systems."
-  },
   contact: {
     email: "abhinavb4116@gmail.com",
     phone: "(+91) 6303395859",
@@ -33,36 +19,15 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/abhinavb5632",
     leetcode: "https://leetcode.com/u/Abhinavbilla/",
     email: "mailto:abhinavb4116@gmail.com"
-  },
-  footer: {
-    copyright: "© 2026 Billa Abhinav. Undergraduate @ IISc Mathematics & Computing."
   }
 };
 
 export const aboutData = {
+  intro: "I study Mathematics and Computing at the Indian Institute of Science in Bangalore, and I spend most of my free time building things that run in a browser.",
   narrative: [
-    "I am currently an undergraduate student pursuing my B.Tech in Mathematics and Computing at the Indian Institute of Science (IISc), Bangalore (2024 – Present). My work centers at the intersection of deep mathematical foundations and production-grade software engineering.",
-    "Through rigorous coursework in linear algebra, probability, discrete math, and algorithms, combined with hands-on systems and machine learning development, I engineer scalable backends, reliable data validation pipelines, and deep generative architectures."
-  ],
-  pillars: [
-    {
-      id: "math-rigor",
-      title: "Mathematical Rigor",
-      description: "Strong theoretical and analytical foundation backed by high national ranks in JEE Advanced (AIR 3148) and JEE Mains (AIR 1260), with deep coursework in linear algebra, probability, and optimization.",
-      highlight: "AIR 3148 (Adv) / 1260 (Mains)"
-    },
-    {
-      id: "software-engineering",
-      title: "Software Engineering",
-      description: "Practical engineering focused on robust API design, asynchronous processing pipelines, schema validation, and persistent database architectures using FastAPI, SQLite, and Streamlit.",
-      highlight: "APIs & Data Pipelines"
-    },
-    {
-      id: "ai-ml",
-      title: "Machine Learning & AI",
-      description: "Applied research and development in deep generative models (VAE, InfoVAE, VQ-VAE), latent space dynamics, and production ML monitoring with statistical drift detection (KS-test, PSI).",
-      highlight: "Generative Models & Drift Testing"
-    }
+    "I started at IISc in 2024. Coursework keeps me busy with probability, linear algebra, algorithms and automata, and a lot of what I build ends up leaning on it: statistical tests for spotting drift in data, simulations for checking whether a game is fair, random testing for checking whether code is correct.",
+    "I like projects where I can measure whether something actually works. Nexus: Dominion was balanced with thousands of simulated matches, AlgoLens refuses to animate code it hasn't tested, and SoundScope's README says plainly where its model does badly.",
+    "Away from the keyboard I helped run the merchandise team for Pravega, IISc's annual fest."
   ]
 };
 
@@ -114,15 +79,14 @@ export const skillsData = {
 export const projectsData = [
   {
     id: "drift-monitoring-api",
-    title: "Drift Monitoring API – ML Model Monitoring Platform",
+    title: "Drift Monitoring API",
+    tagline: "Notices when the data feeding an ML model stops looking like the data it was trained on.",
     role: "Developer",
     period: "May '26 – Jun '26",
     category: "Software & Systems",
     secondaryCategory: "ML Infrastructure / Backend Systems",
     tags: ["FastAPI", "Streamlit", "SQLite", "Python", "Statistical Drift Detection"],
     githubUrl: "https://github.com/Abhinavbilla/Drift-Monitoring-api",
-    accent: "from-sky-500 via-indigo-500 to-violet-500",
-    highlightStat: { value: "0.969", label: "F1 on 4.5M rows" },
     summary: "Built a drift detection platform with a FastAPI backend, Streamlit dashboard, and SQLite persistence layer to monitor and flag statistical drift in structured data pipelines.",
     keyPoints: [
       "Built a drift detection platform with a FastAPI backend, Streamlit dashboard, and SQLite persistence layer to monitor and flag statistical drift in structured data pipelines.",
@@ -147,15 +111,14 @@ export const projectsData = [
   },
   {
     id: "variational-autoencoders",
-    title: "Variational Autoencoders & Generative Modeling",
+    title: "VAE Suite",
+    tagline: "Standard VAE, InfoVAE and VQ-VAE trained side by side to see where each one breaks.",
     role: "Technical Lead",
     period: "Mar '26 – Apr '26",
     category: "AI / ML & Modeling",
     secondaryCategory: "Deep Learning / Generative Frameworks",
     tags: ["PyTorch", "Python", "Generative Models (VAE, InfoVAE, VQ-VAE)", "CIFAR-10", "CelebA"],
     githubUrl: "https://github.com/Abhinavbilla/Deep-Representation-Learning-VAE-Suite",
-    accent: "from-fuchsia-500 via-purple-500 to-indigo-500",
-    highlightStat: { value: "3", label: "Generative architectures" },
     summary: "Implemented and evaluated continuous (Standard VAE), modified-objective (InfoVAE), and discrete (VQ-VAE) generative frameworks on CIFAR-10 and CelebA benchmark datasets.",
     keyPoints: [
       "Implemented and evaluated continuous (Standard VAE), modified-objective (InfoVAE), and discrete (VQ-VAE) generative frameworks on CIFAR-10 and CelebA benchmark datasets.",
@@ -180,7 +143,8 @@ export const projectsData = [
   },
   {
     id: "nexus-dominion",
-    title: "Nexus: Dominion – Real-Time Multiplayer Strategy Game",
+    title: "Nexus: Dominion",
+    tagline: "A hex strategy game for 2 to 4 players. No dice, online rooms, and AI opponents that explain their moves.",
     role: "Solo Developer",
     period: "2026",
     category: "Software & Systems",
@@ -188,8 +152,6 @@ export const projectsData = [
     tags: ["Node.js", "Socket.IO", "React", "Phaser 3", "Zustand", "Vitest", "Docker"],
     githubUrl: "https://github.com/Abhinavbilla/Nexus-Dominion",
     liveUrl: "https://nexus-dominion.onrender.com",
-    accent: "from-amber-500 via-orange-500 to-rose-500",
-    highlightStat: { value: "50.8 / 49.0", label: "2-player seat win rates" },
     summary: "A browser-based, turn-based hex strategy game for 2–4 players with real-time online rooms, explainable AI opponents, and rules balanced through thousands of simulated matches.",
     keyPoints: [
       "Built a server-authoritative multiplayer architecture on Node.js and Socket.IO: clients send intents, the server validates them against the real state and broadcasts the full new state, so a modified client can never make an illegal move.",
@@ -215,7 +177,8 @@ export const projectsData = [
   },
   {
     id: "algolens",
-    title: "AlgoLens – Verified Algorithm Visualization Platform",
+    title: "AlgoLens",
+    tagline: "Paste a DSA problem and watch brute force to optimal play out step by step, animated only from code that passed its tests.",
     role: "Solo Developer",
     period: "2026",
     category: "Software & Systems",
@@ -223,8 +186,6 @@ export const projectsData = [
     tags: ["Python", "FastAPI", "PostgreSQL", "React", "TypeScript", "Docker", "LLM APIs"],
     githubUrl: "https://github.com/Abhinavbilla/AlgoLens",
     liveUrl: "https://172-198-138-187.sslip.io/",
-    accent: "from-emerald-500 via-teal-500 to-cyan-500",
-    highlightStat: { value: "300+", label: "Random tests per approach" },
     summary: "A visual DSA learning platform: paste a problem and watch brute-force to optimal approaches animate step by step. Every animation is recorded from a real run of code verified against hundreds of tests.",
     keyPoints: [
       "Built a pipeline that turns a pasted problem statement into a precise signature, generates two independent brute forces (from different models) plus optimized approaches, and only marks an approach verified when it passes every check.",
@@ -250,7 +211,8 @@ export const projectsData = [
   },
   {
     id: "soundscope",
-    title: "SoundScope – In-Browser Sound Event Detection",
+    title: "SoundScope",
+    tagline: "Finds dogs, sirens, applause and 440+ other sounds in long recordings, without uploading them anywhere.",
     role: "Solo Developer",
     period: "2026",
     category: "AI / ML & Modeling",
@@ -258,8 +220,6 @@ export const projectsData = [
     tags: ["JavaScript", "React", "ONNX Runtime Web", "Web Workers", "WebCodecs", "OPFS"],
     githubUrl: "https://github.com/Abhinavbilla/SoundScope",
     liveUrl: "https://soundscope-cglz.onrender.com",
-    accent: "from-cyan-500 via-blue-500 to-indigo-500",
-    highlightStat: { value: "447", label: "Sound classes detected" },
     summary: "A privacy-first web app that finds speech, sirens, dogs, applause and 440+ other sounds in long audio or video recordings, running a pretrained sound-event model entirely on the user's device.",
     keyPoints: [
       "Ran the EfficientSED sound-event model in the browser with ONNX Runtime Web, scoring 447 sound classes every 40 ms over overlapping 10-second windows, so recordings never leave the device.",
@@ -285,11 +245,6 @@ export const projectsData = [
   }
 ];
 
-export const projectFilterTabs = [
-  { id: "all", label: "All Projects" },
-  { id: "Software & Systems", label: "Full-Stack & Systems" },
-  { id: "AI / ML & Modeling", label: "AI / ML & Modeling" }
-];
 
 export const educationData = [
   {
@@ -346,8 +301,6 @@ export const leadershipData = [
 
 export const navigationLinks = [
   { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Education", href: "#education" },
+  { name: "Work", href: "#work" },
   { name: "Contact", href: "#contact" }
 ];
