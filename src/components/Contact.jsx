@@ -13,6 +13,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { Reveal, SectionHeader } from './ui';
 
 export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -79,32 +80,24 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-20 scroll-mt-20 border-t border-slate-200 dark:border-slate-800/80">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 mb-3">
-            <Mail className="w-3.5 h-3.5" />
-            <span>Get In Touch</span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
-            Let's Connect & Collaborate
-          </h2>
-
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-            Open to software engineering and AI/ML internship opportunities, applied research discussions, or technical inquiries.
-          </p>
-        </div>
+    <section id="contact" className="py-20 md:py-28 scroll-mt-20">
+      <div>
+        <SectionHeader
+          index="05"
+          eyebrow="Get in touch"
+          title="Let's build something"
+          highlight="together."
+          description="Open to software engineering and AI/ML internship opportunities, applied research discussions, or just a good technical conversation."
+        />
 
         {/* 2-Column Responsive Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Left Column: Direct Contact & Profiles (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
+          <Reveal className="lg:col-span-5 space-y-4">
             {/* Email Direct Card */}
-            <div className="p-5 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
+            <div className="p-5 rounded-2xl glass flex items-center justify-between gap-3">
               <div className="flex items-center gap-3 overflow-hidden">
-                <div className="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-800/50 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 text-white shadow-md shadow-indigo-500/30 flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="truncate">
@@ -129,9 +122,9 @@ export default function Contact() {
             </div>
 
             {/* Phone Direct Card */}
-            <div className="p-5 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
+            <div className="p-5 rounded-2xl glass flex items-center justify-between gap-3">
               <div className="flex items-center gap-3 overflow-hidden">
-                <div className="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-800/50 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 text-white shadow-md shadow-indigo-500/30 flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="truncate">
@@ -156,7 +149,7 @@ export default function Contact() {
             </div>
 
             {/* Profiles & Location Grid */}
-            <div className="p-5 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+            <div className="p-5 rounded-2xl glass space-y-4">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                 Online Profiles
               </span>
@@ -166,7 +159,7 @@ export default function Contact() {
                   href={personalInfo.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/[0.03] dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 hover:border-indigo-500 hover:-translate-y-0.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <Linkedin className="w-4 h-4 text-[#0A66C2]" />
@@ -179,7 +172,7 @@ export default function Contact() {
                   href={personalInfo.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/[0.03] dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 hover:border-indigo-500 hover:-translate-y-0.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <Github className="w-4 h-4" />
@@ -192,7 +185,7 @@ export default function Contact() {
                   href={personalInfo.socialLinks.leetcode}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/[0.03] dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 hover:border-indigo-500 hover:-translate-y-0.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <Code2 className="w-4 h-4 text-amber-500" />
@@ -202,19 +195,19 @@ export default function Contact() {
                 </a>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+              <div className="pt-3 border-t border-slate-900/5 dark:border-white/10 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                 <MapPin className="w-3.5 h-3.5 text-slate-400" />
                 <span>{personalInfo.contact.location} • {personalInfo.institution}</span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right Column: Zero-Backend Mailto Message Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="p-6 sm:p-7 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
+          <Reveal delay={150} className="lg:col-span-7">
+            <div className="p-6 sm:p-7 rounded-2xl glass">
               <div className="flex items-center gap-2 mb-5">
                 <MessageSquare className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                <h3 className="font-display text-lg font-semibold text-slate-900 dark:text-white">
                   Send a Direct Message
                 </h3>
               </div>
@@ -235,7 +228,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Alex Smith"
-                      className="w-full px-3.5 py-2 rounded-lg text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
+                      className="w-full px-3.5 py-2 rounded-lg text-sm bg-white/70 dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
                     />
                   </div>
 
@@ -253,7 +246,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="e.g. alex@example.com"
-                      className="w-full px-3.5 py-2 rounded-lg text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
+                      className="w-full px-3.5 py-2 rounded-lg text-sm bg-white/70 dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
                     />
                   </div>
                 </div>
@@ -272,7 +265,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="e.g. Internship Opportunity / Collaboration"
-                    className="w-full px-3.5 py-2 rounded-lg text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
+                    className="w-full px-3.5 py-2 rounded-lg text-sm bg-white/70 dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
                   />
                 </div>
 
@@ -290,7 +283,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Write your message here..."
-                    className="w-full px-3.5 py-2 rounded-lg text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600 resize-none"
+                    className="w-full px-3.5 py-2 rounded-lg text-sm bg-white/70 dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600 resize-none"
                   />
                 </div>
 
@@ -309,14 +302,14 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 rounded-lg text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 transition-colors shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:shadow-lg hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all shadow-md shadow-indigo-500/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send via Email Client</span>
                 </button>
               </form>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
