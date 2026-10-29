@@ -15,7 +15,7 @@ export const personalInfo = {
   institution: "Indian Institute of Science (IISc), Bangalore",
   period: "2024 – Present",
   classOf: "2024 – Present",
-  statusPill: "Current IISc Student • Open to SWE & AI/ML Internships",
+  statusPill: "Current IISc Student • Mathematics & Computing",
   resumePath: "/resume.pdf",
   profilePhoto: "/profile-photo.jpg",
   taglines: {

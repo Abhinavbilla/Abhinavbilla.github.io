@@ -87,7 +87,7 @@ export default function Contact() {
           eyebrow="Get in touch"
           title="Let's build something"
           highlight="together."
-          description="Open to software engineering and AI/ML internship opportunities, applied research discussions, or just a good technical conversation."
+          description="Always happy to talk about interesting engineering problems, applied research, or just have a good technical conversation."
         />
 
         {/* 2-Column Responsive Layout */}
@@ -264,7 +264,7 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="e.g. Internship Opportunity / Collaboration"
+                    placeholder="e.g. Collaboration / Project Idea"
                     className="w-full px-3.5 py-2 rounded-lg text-sm bg-white/70 dark:bg-white/[0.04] border border-slate-900/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-slate-900 dark:text-white transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
                   />
                 </div>
