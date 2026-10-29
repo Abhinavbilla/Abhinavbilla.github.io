@@ -81,6 +81,8 @@ export const projectsData = [
   {
     id: "drift-monitoring-api",
     title: "Drift Monitoring API",
+    dir: "drift-monitor",
+    blurb: "KS + PSI checks on live data",
     facts: [
       { value: "0.969", label: "F1 on 4.5M production rows" },
       { value: "15k", label: "rows: best batch size for detection" }
@@ -117,6 +119,8 @@ export const projectsData = [
   {
     id: "variational-autoencoders",
     title: "VAE Suite",
+    dir: "vae-suite",
+    blurb: "VAE vs InfoVAE vs VQ-VAE",
     facts: [
       { value: "3", label: "architectures compared" },
       { value: "2", label: "datasets: CIFAR-10 and CelebA" }
@@ -153,6 +157,8 @@ export const projectsData = [
   {
     id: "nexus-dominion",
     title: "Nexus: Dominion",
+    dir: "nexus-dominion",
+    blurb: "multiplayer hex strategy + AI",
     facts: [
       { value: "50.8 / 49.0", label: "seat win rates after balancing" },
       { value: "0.3 ms", label: "per Strategic AI move" }
@@ -191,6 +197,8 @@ export const projectsData = [
   {
     id: "algolens",
     title: "AlgoLens",
+    dir: "algolens",
+    blurb: "DSA animations from tested code",
     facts: [
       { value: "300", label: "random tests before a solution counts" },
       { value: "2", label: "languages cross-checked, Python and C++" }
@@ -229,6 +237,8 @@ export const projectsData = [
   {
     id: "soundscope",
     title: "SoundScope",
+    dir: "soundscope",
+    blurb: "447 sound classes, on-device",
     facts: [
       { value: "447", label: "sound classes" },
       { value: "10 h", label: "longest recording tested, all on-device" }
@@ -319,6 +329,9 @@ export const leadershipData = [
     description: "Core Coordinator of the Merchandise Team for Pravega Fest."
   }
 ];
+
+// Where each project lives in the hero's file tree
+export const projectFolder = (project) => (project.category === "AI / ML & Modeling" ? "models" : "systems");
 
 export const navigationLinks = [
   { name: "Work", href: "#work" },

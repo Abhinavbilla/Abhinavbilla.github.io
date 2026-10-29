@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { projectsData } from '../data/portfolioData';
+import { projectsData, projectFolder } from '../data/portfolioData';
 import Section, { Reveal } from './Section';
 import nexusShot from '../assets/work/nexus.jpg';
 import algolensShot from '../assets/work/algolens.jpg';
@@ -119,8 +119,12 @@ function Project({ project, index }) {
       </Reveal>
 
       <Reveal delay={120} className="lg:col-span-5">
-        <div className="flex items-baseline gap-3 font-mono text-xs text-muted">
-          <span className="text-accent">{String(index + 1).padStart(2, '0')}</span>
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-xs text-muted">
+          <span>
+            <span className="text-accent">{projectFolder(project)}/</span>
+            {project.dir}
+          </span>
+          <span>·</span>
           <span>{project.period}</span>
           <span>·</span>
           <span>{project.role}</span>
@@ -180,7 +184,7 @@ function Project({ project, index }) {
 export default function Projects() {
   return (
     <div className="max-w-6xl mx-auto px-5 sm:px-8">
-      <Section id="work" title="Selected work" note={`${projects.length} projects, 2026`}>
+      <Section id="work" title="Selected work" note="all of these run, most of them live">
         <div className="space-y-24 sm:space-y-32">
           {projects.map((project, i) => (
             <Project key={project.id} project={project} index={i} />

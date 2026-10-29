@@ -1,5 +1,5 @@
 import React from 'react';
-import { personalInfo } from '../data/portfolioData';
+import { personalInfo, projectsData, projectFolder } from '../data/portfolioData';
 import profilePhoto from '../assets/profile-photo-web.jpg';
 import DotField from './DotField';
 import useLocalTime from '../hooks/useLocalTime';
@@ -9,6 +9,62 @@ const socials = [
   { label: 'LinkedIn', href: personalInfo.socialLinks.linkedin },
   { label: 'LeetCode', href: personalInfo.socialLinks.leetcode }
 ];
+
+const folders = ['systems', 'models'].map((name) => ({
+  name,
+  projects: projectsData.filter((p) => projectFolder(p) === name)
+}));
+const longestDir = Math.max(...projectsData.map((p) => p.dir.length));
+
+// A terminal window listing the projects as folders
+function ProjectTree({ time }) {
+  return (
+    <div className="rounded-xl overflow-hidden bg-[#181613] text-[#ece7dd] font-mono text-[12.5px] sm:text-[13px] leading-relaxed shadow-[0_24px_50px_-20px_rgb(0_0_0/0.5)] ring-1 ring-black/5 dark:ring-white/10">
+      <div className="flex items-center gap-1.5 px-4 h-8 bg-[#26231f] text-[11px] text-white/50">
+        <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+        <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+        <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+        <span className="ml-3">abhinav@iisc: ~</span>
+        <span className="ml-auto">{time} IST</span>
+      </div>
+      <div className="px-4 sm:px-5 py-4 overflow-x-auto">
+        <p>
+          <span className="text-[#ef8a5a]">~</span> $ tree projects
+        </p>
+        <p className="text-white/60">projects/</p>
+        {folders.map((folder, fi) => {
+          const lastFolder = fi === folders.length - 1;
+          return (
+            <div key={folder.name}>
+              <p className="whitespace-pre">
+                <span className="text-white/35">{lastFolder ? '└── ' : '├── '}</span>
+                <span className="text-[#8fb8ff]">{folder.name}/</span>
+              </p>
+              {folder.projects.map((project, pi) => (
+                <p key={project.id} className="whitespace-pre">
+                  <span className="text-white/35">
+                    {lastFolder ? '    ' : '│   '}
+                    {pi === folder.projects.length - 1 ? '└── ' : '├── '}
+                  </span>
+                  <a href={`#${project.id}`} className="hover:text-[#ef8a5a] hover:underline underline-offset-2">
+                    {project.dir}
+                  </a>
+                  <span className="hidden sm:inline text-white/40">
+                    {' '.repeat(longestDir - project.dir.length + 3)}# {project.blurb}
+                  </span>
+                </p>
+              ))}
+            </div>
+          );
+        })}
+        <p className="mt-2">
+          <span className="text-[#ef8a5a]">~</span> ${' '}
+          <span aria-hidden="true" className="inline-block w-2 h-4 align-[-3px] bg-[#ece7dd] animate-pulse" />
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   const time = useLocalTime();
@@ -30,8 +86,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-8 max-w-2xl font-display text-2xl sm:text-3xl leading-snug text-ink/90 font-light">
-              I study maths and build things for the <em className="text-accent">browser</em>:
-              strategy games, learning tools, and models that run on your own laptop.
+              Maths student by day. The rest of the time I'm writing <em className="text-accent">servers</em>,
+              training <em className="text-accent">models</em>, and putting both in the browser.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
@@ -73,29 +129,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right now */}
-        <dl className="mt-16 sm:mt-20 grid sm:grid-cols-3 gap-6 sm:gap-8 pt-6 border-t border-rule text-sm">
-          <div>
-            <dt className="font-mono text-xs text-muted mb-1">Studying</dt>
-            <dd className="text-ink">B.Tech, Mathematics &amp; Computing at IISc, since 2024</dd>
+        {/* What's in the projects folder */}
+        <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="lg:col-span-7">
+            <ProjectTree time={time} />
           </div>
-          <div>
-            <dt className="font-mono text-xs text-muted mb-1">Recently shipped</dt>
-            <dd className="text-ink">
-              <a href="#algolens" className="link">AlgoLens</a>, a DSA visualizer that only animates tested code
-            </dd>
-          </div>
-          <div>
-            <dt className="font-mono text-xs text-muted mb-1">Local time</dt>
-            <dd className="text-ink">
-              {time} in Bangalore{' '}
-              <span className="relative inline-flex w-2 h-2 ml-1 align-middle">
-                <span className="absolute inset-0 rounded-full bg-accent/50 animate-ping" />
-                <span className="relative w-2 h-2 rounded-full bg-accent" />
-              </span>
-            </dd>
-          </div>
-        </dl>
+          <p className="hidden lg:block lg:col-span-5 font-hand text-3xl text-muted -rotate-3 leading-tight pl-4">
+            <span className="text-accent">←</span> five projects, two folders.
+            <br />
+            click one to jump to it
+          </p>
+        </div>
       </div>
     </section>
   );

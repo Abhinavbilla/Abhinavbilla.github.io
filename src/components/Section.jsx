@@ -42,7 +42,7 @@ export default function Section({ id, title, note, children, className = '' }) {
       <Reveal>
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 pb-5 mb-12 border-b border-rule">
           <h2 className="font-display text-4xl sm:text-6xl font-light tracking-tight text-ink">{title}</h2>
-          {note && <span className="font-mono text-xs text-muted">{note}</span>}
+          {note && <span className="font-hand text-2xl text-accent -rotate-2">{note}</span>}
         </div>
       </Reveal>
       {children}
