@@ -4,8 +4,9 @@
 
 @theme {
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-hand: "Caveat", "Comic Sans MS", cursive;
 
   /* Paper, ink and one accent. Dark values are swapped in below. */
   --color-paper: var(--paper);
@@ -14,24 +15,31 @@
   --color-rule: var(--rule);
   --color-accent: var(--accent);
   --color-tint: var(--tint);
+
+  /* Flat panel colours, one per project, taken from each app's own look */
+  --color-nexus: #1b2140;
+  --color-algolens: #2b1d16;
+  --color-soundscope: #2f4fd0;
+  --color-drift: #1e3b31;
+  --color-vae: #432841;
 }
 
 :root {
-  --paper: #f5f2eb;
-  --ink: #1d1b18;
-  --muted: #6b665d;
-  --rule: #ddd7cb;
-  --accent: #b4441c;
-  --tint: #ebe5d8;
+  --paper: #f3eee4;
+  --ink: #181613;
+  --muted: #6d675d;
+  --rule: #d8d0c1;
+  --accent: #c2461b;
+  --tint: #e9e2d4;
 }
 
 .dark {
-  --paper: #161513;
-  --ink: #e9e5dc;
-  --muted: #9a948a;
-  --rule: #2e2b27;
-  --accent: #e8875b;
-  --tint: #201e1b;
+  --paper: #13120f;
+  --ink: #ece7dd;
+  --muted: #9a9387;
+  --rule: #2c2924;
+  --accent: #ef8a5a;
+  --tint: #1d1b17;
 }
 
 @layer base {
@@ -45,6 +53,7 @@
     background-color: var(--paper);
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
@@ -52,27 +61,60 @@
     color: var(--paper);
   }
 
-  a {
-    text-underline-offset: 3px;
+  /* Fraunces looks best with a little softness and its optical sizes on */
+  .font-display {
+    font-variation-settings: "SOFT" 50, "WONK" 1;
+    font-optical-sizing: auto;
   }
 }
 
 @layer components {
-  /* Inline text link: underlined, accent on hover */
+  /* Underline that draws in from the left on hover */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.6, 0, 0.2, 1), color 0.2s;
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Plain underlined link for running text */
   .link {
     text-decoration: underline;
     text-decoration-color: var(--rule);
     text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
     transition: color 0.15s, text-decoration-color 0.15s;
   }
   .link:hover {
     color: var(--accent);
     text-decoration-color: var(--accent);
   }
+
+  /* Fade-up on first scroll into view (see Reveal in Section.jsx) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

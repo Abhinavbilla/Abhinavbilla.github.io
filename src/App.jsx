@@ -7,25 +7,20 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 
 function MainLayout() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <div className="max-w-3xl mx-auto px-5 sm:px-8">
-        <Navbar />
+    <div className="min-h-screen bg-paper text-ink transition-colors duration-300">
+      <Navbar />
 
-        <main>
-          <Hero />
-          <About />
-          <Projects />
-          <Skills />
-          <Education />
-          <Contact />
-        </main>
-
-        <Footer />
-      </div>
+      <main>
+        <Hero />
+        <Projects />
+        <About />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
     </div>
   );
 }

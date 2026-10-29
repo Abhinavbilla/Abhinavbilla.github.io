@@ -23,10 +23,11 @@ export const personalInfo = {
 };
 
 export const aboutData = {
+  pullQuote: "I like projects where I can measure whether something actually works.",
   intro: "I study Mathematics and Computing at the Indian Institute of Science in Bangalore, and I spend most of my free time building things that run in a browser.",
   narrative: [
     "I started at IISc in 2024. Coursework keeps me busy with probability, linear algebra, algorithms and automata, and a lot of what I build ends up leaning on it: statistical tests for spotting drift in data, simulations for checking whether a game is fair, random testing for checking whether code is correct.",
-    "I like projects where I can measure whether something actually works. Nexus: Dominion was balanced with thousands of simulated matches, AlgoLens refuses to animate code it hasn't tested, and SoundScope's README says plainly where its model does badly.",
+    "Nexus: Dominion was balanced with thousands of simulated matches, AlgoLens refuses to animate code it hasn't tested, and SoundScope's README says plainly where its model does badly. I'd rather show a number than an adjective.",
     "Away from the keyboard I helped run the merchandise team for Pravega, IISc's annual fest."
   ]
 };
@@ -80,6 +81,10 @@ export const projectsData = [
   {
     id: "drift-monitoring-api",
     title: "Drift Monitoring API",
+    facts: [
+      { value: "0.969", label: "F1 on 4.5M production rows" },
+      { value: "15k", label: "rows: best batch size for detection" }
+    ],
     tagline: "Notices when the data feeding an ML model stops looking like the data it was trained on.",
     role: "Developer",
     period: "May '26 – Jun '26",
@@ -112,6 +117,10 @@ export const projectsData = [
   {
     id: "variational-autoencoders",
     title: "VAE Suite",
+    facts: [
+      { value: "3", label: "architectures compared" },
+      { value: "2", label: "datasets: CIFAR-10 and CelebA" }
+    ],
     tagline: "Standard VAE, InfoVAE and VQ-VAE trained side by side to see where each one breaks.",
     role: "Technical Lead",
     period: "Mar '26 – Apr '26",
@@ -144,6 +153,10 @@ export const projectsData = [
   {
     id: "nexus-dominion",
     title: "Nexus: Dominion",
+    facts: [
+      { value: "50.8 / 49.0", label: "seat win rates after balancing" },
+      { value: "0.3 ms", label: "per Strategic AI move" }
+    ],
     tagline: "A hex strategy game for 2 to 4 players. No dice, online rooms, and AI opponents that explain their moves.",
     role: "Solo Developer",
     period: "2026",
@@ -178,6 +191,10 @@ export const projectsData = [
   {
     id: "algolens",
     title: "AlgoLens",
+    facts: [
+      { value: "300", label: "random tests before a solution counts" },
+      { value: "2", label: "languages cross-checked, Python and C++" }
+    ],
     tagline: "Paste a DSA problem and watch brute force to optimal play out step by step, animated only from code that passed its tests.",
     role: "Solo Developer",
     period: "2026",
@@ -212,6 +229,10 @@ export const projectsData = [
   {
     id: "soundscope",
     title: "SoundScope",
+    facts: [
+      { value: "447", label: "sound classes" },
+      { value: "10 h", label: "longest recording tested, all on-device" }
+    ],
     tagline: "Finds dogs, sirens, applause and 440+ other sounds in long recordings, without uploading them anywhere.",
     role: "Solo Developer",
     period: "2026",
@@ -300,7 +321,7 @@ export const leadershipData = [
 ];
 
 export const navigationLinks = [
-  { name: "About", href: "#about" },
   { name: "Work", href: "#work" },
+  { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" }
 ];

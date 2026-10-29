@@ -1,24 +1,36 @@
 import React from 'react';
 import { skillsData } from '../data/portfolioData';
-import Section from './Section';
+import Section, { Reveal } from './Section';
 
 export default function Skills() {
   const { computerScience, mathematics } = skillsData.coursework;
+  const groups = [
+    ...skillsData.categories.filter((c) => c.name !== 'Spoken Languages'),
+    { name: 'Courses at IISc', skills: [...computerScience, ...mathematics] }
+  ];
+  const spoken = skillsData.categories.find((c) => c.name === 'Spoken Languages');
 
   return (
-    <Section id="skills" label="Skills">
-      <dl className="space-y-4 text-[15px] leading-relaxed">
-        {skillsData.categories.map((category) => (
-          <div key={category.name} className="sm:grid sm:grid-cols-[11rem_1fr] sm:gap-4">
-            <dt className="text-muted">{category.name}</dt>
-            <dd className="text-ink">{category.skills.join(', ')}</dd>
-          </div>
-        ))}
-        <div className="sm:grid sm:grid-cols-[11rem_1fr] sm:gap-4">
-          <dt className="text-muted">Courses at IISc</dt>
-          <dd className="text-ink">{[...computerScience, ...mathematics].join(', ')}</dd>
+    <div className="max-w-6xl mx-auto px-5 sm:px-8">
+      <Section id="skills" title="Toolbox" note={spoken ? `Speaks ${spoken.skills.join(', ')}` : undefined}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+          {groups.map((group, i) => (
+            <Reveal key={group.name} delay={(i % 3) * 100}>
+              <h3 className="font-display italic text-2xl text-ink mb-4">{group.name}</h3>
+              <ul className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="px-3 py-1.5 rounded-full border border-rule text-sm text-ink/85 hover:border-accent hover:text-accent transition-colors cursor-default"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
         </div>
-      </dl>
-    </Section>
+      </Section>
+    </div>
   );
 }
