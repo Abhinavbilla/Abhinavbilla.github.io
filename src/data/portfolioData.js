@@ -222,6 +222,7 @@ export const projectsData = [
     secondaryCategory: "Full-Stack / Developer Education",
     tags: ["Python", "FastAPI", "PostgreSQL", "React", "TypeScript", "Docker", "LLM APIs"],
     githubUrl: "https://github.com/Abhinavbilla/AlgoLens",
+    liveUrl: "https://172-198-138-187.sslip.io/",
     accent: "from-emerald-500 via-teal-500 to-cyan-500",
     highlightStat: { value: "300+", label: "Random tests per approach" },
     summary: "A visual DSA learning platform: paste a problem and watch brute-force to optimal approaches animate step by step. Every animation is recorded from a real run of code verified against hundreds of tests.",
