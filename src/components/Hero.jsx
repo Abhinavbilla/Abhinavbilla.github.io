@@ -82,7 +82,7 @@ export default function Hero() {
             </p>
 
             <h1 className="font-display font-light tracking-tight text-ink leading-[0.92] text-[clamp(3.6rem,13vw,10rem)]">
-              Abhinav<span className="text-accent">.</span>
+              Abhinav
             </h1>
 
             <p className="mt-8 max-w-2xl font-display text-2xl sm:text-3xl leading-snug text-ink/90 font-light">

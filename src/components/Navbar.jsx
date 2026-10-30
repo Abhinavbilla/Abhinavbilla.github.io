@@ -21,7 +21,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-6">
         <a href="#" className="font-display text-xl italic text-ink hover:text-accent transition-colors">
-          abhinav<span className="text-accent not-italic">.</span>
+          abhinav
         </a>
 
         <nav aria-label="Main" className="flex items-center gap-4 sm:gap-7 text-sm">
